@@ -1,0 +1,39 @@
+.text
+        Push 3
+test1:  Push 1
+        Add 1
+        Dup
+        Sub 1
+        Push 32
+        And
+        Test
+        Push 2
+        Push 2
+        Store
+        Push 2
+        Load
+        Pop 2
+        Add 2
+        Add 4
+        Store
+        Push 1
+    Jump test1
+    Jump test1
+        Pop 1
+        Push 1
+        Pop 1
+        Push 1
+        Pop 1
+        Push 1
+        Pop 1
+        Push 1
+        Pop 1
+        Push 1
+        Pop 1
+                          
+   Jump test2
+	      Sys
+test2:  Push 2
+        Pop 40
+
+        Sys
