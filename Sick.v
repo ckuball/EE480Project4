@@ -1,4 +1,4 @@
-// basic sizes of things
+// basic sizes of things////////
 `define WORD  [15:0]
 `define Opcode  [15:12]
 `define Immed [11:0]
@@ -55,7 +55,7 @@
 
 `define OPNOP {4'hf, 4'hf}
 
-`define NOREG   255
+`define NOREG   255/////////
 
 //Slow mem 
 `define PID [1:0]
@@ -66,7 +66,7 @@
 //Cache
 `define CACHESIZE [7:0] //variable size
 
-module processor(halt, reset, clk);
+module processor(halt, reset, clk);//////
 output halt;
 input reset, clk;
 
@@ -92,7 +92,7 @@ reg `WORD addr;
 wire rnotw, strobe;
  
 
-always @(posedge reset) begin
+ always @(posedge reset) begin///
   `SP0 <= 0;
   `SP1 <= 0;
   `PC0 <= 0;
@@ -108,7 +108,7 @@ assign halt = (`HALT0 && `HALT1);
 assign teststall = (s1op == `OPTest);
 
 // Stall for Ret?
-assign retstall = (s1op == `OPRet);
+ assign retstall = (s1op == `OPRet);//
 
 always @(posedge clk)
   begin
@@ -139,7 +139,7 @@ end
 
 // Instruction fetch interface 
 // Instruction fetch
-always @(posedge clk) begin
+ always @(posedge clk) begin//
   // set immed, accounting for pre
   case (op)
     //$display("op = %b", op);
@@ -300,7 +300,7 @@ always @(posedge clk) begin
     `OPPut: begin r[{`PID1, s2d}] <= s2sv; end
   endcase
 end
-endmodule
+endmodule////
 
 //////SLOW MEM//////////////////////////////////////////////////           
 module slowmem(mfc, rdata, addr, wdata, rnotw, strobe, clk);
